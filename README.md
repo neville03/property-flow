@@ -1,29 +1,39 @@
-# Welcome to your Lovable project
+# Rentaly
 
-This project was built with [Lovable](https://lovable.dev).
+A rental property management dashboard — track properties, tenants, staff, rent
+collection, expenses, and reports across your portfolio. The UI is strictly
+black and white; charts are the only place colour is used. All data is mock data
+(no backend yet).
 
-## Build with Lovable
+## Stack
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- TanStack Start (SSR) + TanStack Router
+- React 19 + TypeScript
+- Tailwind CSS v4
+- shadcn/ui + Recharts
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requires Node.js and a package manager (npm or bun).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
 
-## Built with
+Then open the local URL printed in the terminal.
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Scripts
+
+- `npm run dev` — start the dev server
+- `npm run build` — production build
+- `npm run preview` — preview the production build
+- `npm run lint` — run ESLint
+- `npm run format` — format with Prettier
+
+## Structure
+
+- `src/routes/` — file-based routes (`__root.tsx`, `index.tsx`)
+- `src/components/RentalManagement.jsx` — the full dashboard (all modules + mock data)
+- `src/components/ui/` — shadcn/ui primitives
+- `src/server.ts`, `src/start.ts` — SSR entry and request middleware
