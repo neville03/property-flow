@@ -1,28 +1,24 @@
-import { createFileRoute } from "@tanstack/react-router";
-import RentalManagement from "@/components/RentalManagement";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
+  beforeLoad: () => {
+    throw redirect({ to: "/dashboard" });
+  },
   head: () => ({
     meta: [
-      { title: "Rentaly — Rental Property Management Dashboard" },
+      { title: "RentMe — Rental Operations Console" },
       {
         name: "description",
-        content:
-          "Track properties, tenants, staff, rent collection and expenses across your rental portfolio in one clean dashboard.",
+        content: "Sign in to RentMe to manage properties, tenant applications, documents and rent collection.",
       },
-      { property: "og:title", content: "Rentaly — Rental Property Management Dashboard" },
+      { property: "og:title", content: "RentMe — Rental Operations Console" },
       {
         property: "og:description",
-        content:
-          "Track properties, tenants, staff, rent collection and expenses across your rental portfolio in one clean dashboard.",
+        content: "Manage properties, tenant applications, documents and rent collection in one workspace.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Index,
+  component: () => null,
 });
-
-function Index() {
-  return <RentalManagement />;
-}
