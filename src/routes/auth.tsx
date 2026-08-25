@@ -4,7 +4,6 @@ import { toast } from "sonner";
 import { Logo } from "@/components/rentme/logo";
 import { Btn, Field, inputClass } from "@/components/rentme/ui";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
 
 export const Route = createFileRoute("/auth")({
   ssr: false,
@@ -64,14 +63,6 @@ function AuthPage() {
       toast.error(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setBusy(false);
-    }
-  }
-
-  async function google() {
-    try {
-      await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Google sign-in failed");
     }
   }
 
@@ -146,10 +137,6 @@ function AuthPage() {
               {busy ? "Please wait…" : mode === "signin" ? "Sign in" : "Request access"}
             </Btn>
           </form>
-
-          <Btn variant="outline" className="mt-3 w-full" onClick={google} type="button">
-            Continue with Google
-          </Btn>
 
           <button
             type="button"
